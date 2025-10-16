@@ -1,23 +1,17 @@
 package br.ufal.ic.p2.wepayu.models;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 public class TaxaServico implements Serializable {
-    private Date data;
+    private LocalDate data;
     private double valor;
 
-    public TaxaServico() {
-    }
-
-    public TaxaServico(Date data, double valor) {
+    public TaxaServico(LocalDate data, String valor) {
         this.data = data;
-        this.valor = valor;
+        this.valor = Double.parseDouble(valor.replace(",", "."));
     }
 
-    public Date getData() { return data; }
-    public void setData(Date data) { this.data = data; }
-
+    public LocalDate getData() { return data; }
     public double getValor() { return valor; }
-    public void setValor(double valor) { this.valor = valor; }
 }
